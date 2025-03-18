@@ -20,10 +20,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: '#161622',
   },
   getStartedButton: {
     borderRadius: 30,
-    backgroundColor: "#06f",
+    backgroundColor: "#FF8C00",
     marginTop: 200,
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -32,13 +33,13 @@ const styles = StyleSheet.create({
   mediumText: {
     fontWeight: "400",
     fontSize: 20,
-    color: "#fff",
+    color: "#161622",
     textAlign: "center",
   },
   LargeText: {
     fontWeight: "600",
     fontSize: 24,
-    color: "#000",
+    color: "#fff",
     textAlign: "center",
   },
 });
