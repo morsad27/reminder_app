@@ -1,15 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const index = () => {
   return (
-    <View style={styles.mainContainer}>
-      <Text style={styles.LargeText}>Reminder App</Text>
-      <Link href="/reminders" style={styles.getStartedButton}>
-        <Text style={styles.mediumText}>Get Started</Text>
-      </Link>
-    </View>
+    <SafeAreaProvider>
+      <View style={styles.mainContainer}>
+        <Text style={styles.LargeText}>Reminder App</Text>
+        <Link href="/reminders" style={styles.getStartedButton}>
+          <Text style={styles.mediumText}>Get Started</Text>
+        </Link>
+      </View>
+    </SafeAreaProvider>
   );
 };
 
@@ -20,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: '#161622',
+    backgroundColor: "#161622",
   },
   getStartedButton: {
     borderRadius: 30,
