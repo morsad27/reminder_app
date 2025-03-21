@@ -1,36 +1,71 @@
 import { Tabs } from "expo-router";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Image } from "react-native";
 
-const TabsLayout = ({ color, focused }) => {
+const TabsLayout = () => {
   return (
     <SafeAreaProvider>
       <Tabs
         screenOptions={{
           tabBarShowLabel: true,
-          tabBarActiveTintColor: "#ff8c00",
+          tabBarActiveTintColor: "#fff",
           tabBarInactiveTintColor: "#fff",
           tabBarStyle: {
-            height: 80,
-            backgroundColor: "#161622",
+            borderTopLeftRadius: 50,
+            borderTopRightRadius: 50,
+            paddingTop: 15,
+            height: 88,
+            backgroundColor: "#06f",
             position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
           },
+          tabBarLabelStyle: {
+            fontSize: 16,
+            fontFamily: "Segoe UI",
+            fontWeight: "bold",
+            paddingTop: 5,
+          },
         }}
       >
+        <Tabs.Screen
+          name="home"
+          options={{
+            headerShown: true,
+            title: "Home",
+            headerStyle: {
+              backgroundColor: "#06f",
+              borderBottomRightRadius: 30,
+              borderBottomLeftRadius: 30,
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
+            tabBarIcon: ({ color }) => (
+              <Image
+                source={require("../../assets/images/home.png")}
+                style={{ width: 48, height: 47, tintColor: color }}
+              />
+            ),
+          }}
+        />
         <Tabs.Screen
           name="reminders"
           options={{
             headerShown: true,
             title: "Reminders",
-            headerStyle: { backgroundColor: "#161622" },
+            headerStyle: {
+              backgroundColor: "#06f",
+              borderBottomRightRadius: 30,
+              borderBottomLeftRadius: 30,
+            },
             headerTintColor: "#fff",
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="reminder" size={24} color={color} />
+            tabBarIcon: ({}) => (
+              <Image
+                source={require("../../assets/images/reminder.png")}
+                style={{ width: 52, height: 50 }}
+              />
             ),
           }}
         />
@@ -38,12 +73,19 @@ const TabsLayout = ({ color, focused }) => {
           name="todo"
           options={{
             headerShown: true,
-            title: "To Do",
-            headerStyle: { backgroundColor: "#161622" },
+            title: "To-Dos",
+            headerStyle: {
+              backgroundColor: "#06f",
+              borderBottomRightRadius: 30,
+              borderBottomLeftRadius: 30,
+            },
             headerTintColor: "#fff",
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
-            tabBarIcon: ({ color }) => (
-              <FontAwesome name="list-ul" size={24} color={color} />
+            tabBarIcon: ({}) => (
+              <Image
+                source={require("../../assets/images/todo.png")}
+                style={{ width: 48, height: 47 }}
+              />
             ),
           }}
         />

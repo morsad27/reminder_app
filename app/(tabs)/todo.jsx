@@ -1,5 +1,6 @@
 import {
   FlatList,
+  Image,
   Pressable,
   StyleSheet,
   Text,
@@ -9,7 +10,6 @@ import {
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { data } from "@/data/todos";
 
 const todo = () => {
@@ -45,11 +45,9 @@ const todo = () => {
         {item.title}
       </Text>
       <Pressable onPress={() => removeTodo(item.id)}>
-        <MaterialIcons
-          name="delete"
-          size={36}
-          color="red"
-          selectable={undefined}
+        <Image 
+          source={require("../../assets/images/remove.png")}
+          style={{ width: 38, height: 38}}
         />
       </Pressable>
     </View>
@@ -59,7 +57,7 @@ const todo = () => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Add a new To Do"
+          placeholder="Add new To-Do"
           placeholderTextColor="gray"
           value={text}
           onChangeText={setText}
@@ -68,7 +66,6 @@ const todo = () => {
           <Text style={styles.addButtonText}>Add</Text>
         </Pressable>
       </View>
-
       <FlatList
         data={todos}
         renderItem={renderItem}
@@ -83,35 +80,29 @@ export default todo;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
-    padding: 10, 
+    backgroundColor: "#fff",
+    padding: 5,
   },
   inputContainer: {
     flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 15, 
     padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 8,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
   },
   input: {
     flex: 1,
     borderColor: "#dcdcdc",
     borderWidth: 1,
-    borderRadius: 8,
     paddingHorizontal: 15,
     paddingVertical: 10,
     fontSize: 16,
     backgroundColor: "#fff",
     color: "#333",
   },
+  title:{
+
+  },
   addButton: {
-    backgroundColor: "#000",
-    borderRadius: 8,
+    backgroundColor: "#06f",
+    borderTopRightRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
     justifyContent: "center",
